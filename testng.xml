@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Example" verbose="1" >
+  <test name="Regression suite 1" >
+    <classes>
+      <class name="com.ascendlearning.automation.ui.jblearning.testcases.JBLearningTests"/>
+    </classes>
+ </test>
+</suite>
