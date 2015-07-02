@@ -15,17 +15,16 @@ public class JBLTest extends BaseTest {
 	@Test(groups = { "smoke" })
 	public void testLoadJBLearningMainPageAndSelectBook() {
 		JBLPage jblPage = new JBLPage(driver);
-		jblPage.loadMainPage();
 		String bookDesc = jblPage.selectBook();
-		VerificationHandler.verifyEquals(bookDesc, PropertiesRepository
-				.getString("jblearning.mainpage.menu.corrections.selectbook.desc.cd"));
+		VerificationHandler.verifyEquals(bookDesc,
+				PropertiesRepository.getString("jblearning.bookdetailspage.selectedbook.desc.cd"));
 	}
 
+	@Test(groups = { "smoke" })
 	public void testLoadJBLearningMainPageAndPurchaseBook() {
 		JBLPage jblPage = new JBLPage(driver);
-		jblPage.loadMainPage();
-		String bookDesc = jblPage.selectBook();
-		VerificationHandler.verifyEquals(bookDesc, PropertiesRepository
-				.getString("jblearning.mainpage.menu.corrections.selectbook.desc.cd"));
+		String result = jblPage.purchaseBook();
+		VerificationHandler.verifyEquals(result, PropertiesRepository
+				.getString("jblearning.ordersummarypage.link.completecheckout.desc.cd"));
 	}
 }
