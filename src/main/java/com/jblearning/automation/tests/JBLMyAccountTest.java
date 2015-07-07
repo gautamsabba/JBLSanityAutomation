@@ -15,4 +15,10 @@ public class JBLMyAccountTest extends BaseTest {
 		JBLMyAccountPage myAccPage = new JBLMyAccountPage(driver);
 		myAccPage.login();
 	}
+
+	// @Test(groups = { "smoke" })
+	// public void testCheckSSOPages() {
+	// JBLMyAccountPage myAccPage = new JBLMyAccountPage(driver);
+	// myAccPage.checkSSO();
+	// }
 }

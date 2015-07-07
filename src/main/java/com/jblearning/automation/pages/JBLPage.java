@@ -66,8 +66,14 @@ public class JBLPage extends BasePage {
 		}
 
 		TextHandler textHandler = new TextHandler(driver);
-		return textHandler.getText(
-				PropertiesRepository.getString("jblearning.bookdetailspage.selectedbook.desc"));
+		String bookDesc = null;
+		try {
+			bookDesc = textHandler.getText(
+					PropertiesRepository.getString("jblearning.bookdetailspage.selectedbook.desc"));
+		} catch (DriverException e) {
+			logger.error("Unable to get book description", e);
+		}
+		return bookDesc;
 	}
 
 	public String purchaseBook() {

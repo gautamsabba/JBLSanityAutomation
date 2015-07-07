@@ -27,7 +27,6 @@ public class JBLMyAccountPage extends BasePage {
 		// Go to My Account page
 		LinkHandler linkHandler = new LinkHandler(driver);
 		try {
-			linkHandler.setSizzleSelector();
 			linkHandler.selectLink(
 					PropertiesRepository.getString("jblmyaccount.mainpage.link.myaccount"),
 					PropertiesRepository.getString("jblmyaccount.mainpage.link.myaccount.waitfor"));
@@ -58,7 +57,6 @@ public class JBLMyAccountPage extends BasePage {
 		
 		//Login		
 		try {
-			linkHandler.setCSSSelector();
 			linkHandler.selectLink(
 					PropertiesRepository.getString("jblearning.loginpage.link.login"),
 					PropertiesRepository.getString("jblearning.loginpage.link.login.waitfor"));
@@ -72,4 +70,22 @@ public class JBLMyAccountPage extends BasePage {
 		setDriverWait(PropertiesRepository.getString("jblmyaccount.mainpage.url.waitfor"));
 	}
 
+	/**
+	 * Insure that various SSO pages (Nav1, Nav2, etc.) are working fine
+	 */
+	public void checkSSO() {
+		// Login to MyAccount
+		login();
+
+		// Check Nav 1 Course
+		LinkHandler linkHandler = new LinkHandler(driver);
+		try {
+			linkHandler.selectLink(
+					PropertiesRepository.getString("jblearning.productpage.link.nav1course"),
+					PropertiesRepository
+							.getString("jblearning.productpage.link.nav1course.waitfor"));
+		} catch (DriverException e) {
+			logger.error("Unable to find Nav 1 product", e);
+		}
+	}
 }
