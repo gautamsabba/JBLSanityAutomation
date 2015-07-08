@@ -87,5 +87,17 @@ public class JBLMyAccountPage extends BasePage {
 		} catch (DriverException e) {
 			logger.error("Unable to find Nav 1 product", e);
 		}
+
+		// Launch the course
+		try {
+			WindowHandler windowHandler = linkHandler.selectLinkToLaunchNewWindow(
+					PropertiesRepository.getString("jblearning.productdetailspage.link.nav1course"),
+					PropertiesRepository
+							.getString("jblearning.productdetailspage.link.nav1course.waitfor"));
+			WebDriver mainWindow = windowHandler.switchToMainWindow();
+			windowHandler.cleanUp(mainWindow);
+		} catch (DriverException e) {
+			logger.error("Unable to launch Nav 1 product", e);
+		}
 	}
 }

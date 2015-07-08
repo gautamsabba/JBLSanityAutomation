@@ -10,15 +10,15 @@ import com.jblearning.automation.pages.JBLMyAccountPage;
 public class JBLMyAccountTest extends BaseTest {
 	Logger logger = LogManager.getLogger(this.getClass());
 
-	@Test(groups = { "smoke" })
-	public void testLoginToMyAccount() {
-		JBLMyAccountPage myAccPage = new JBLMyAccountPage(driver);
-		myAccPage.login();
-	}
-
 	// @Test(groups = { "smoke" })
-	// public void testCheckSSOPages() {
+	// public void testLoginToMyAccount() {
 	// JBLMyAccountPage myAccPage = new JBLMyAccountPage(driver);
-	// myAccPage.checkSSO();
+	// myAccPage.login();
 	// }
+
+	@Test(groups = { "smoke" })
+	public void testCheckSSOPages() {
+		JBLMyAccountPage myAccPage = new JBLMyAccountPage(driver);
+		myAccPage.checkSSO();
+	}
 }
