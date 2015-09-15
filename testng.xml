@@ -6,7 +6,7 @@
 
   	<test name="Sanity Suite 1" >
     	<classes>
-      		<!--class name="com.jblearning.automation.tests.JBLTest"/-->
+      		<class name="com.jblearning.automation.tests.JBLTest"/>
      		<class name="com.jblearning.automation.tests.JBLMyAccountTest"/>
     	</classes>
  	</test>
